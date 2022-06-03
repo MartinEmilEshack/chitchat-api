@@ -1,0 +1,45 @@
+version: '3'
+services:
+  mysql:
+    container_name: chitchat-storage
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT}:3306"
+
+  redis:
+    container_name: chitchat-cache
+    image: 'redis:alpine'
+    restart: always
+    command: redis-server --requirepass ${CACHE_PASSWORD}
+    hostname: redis
+    ports:
+      - "${CACHE_PORT}:6379"
+
+  rabbitmq:
+    container_name: chitchat-queue
+    image: rabbitmq:management
+    restart: always
+    hostname: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${QUEUE_USER}
+      RABBITMQ_DEFAULT_PASS: ${QUEUE_PASSWORD}
+    ports:
+      - "${QUEUE_PORT}:5672"
+      - "${QUEUE_MANAGEMENT_PORT}:15672"
+
+  chitchat-api:
+    container_name: chitchat-api
+    build: .
+    image: chitchat-api:1.0
+    volumes:
+      - .:/chitchat-api
+    ports:
+      - "${API_PORT}:3000"
+    env_file:
+      - .env

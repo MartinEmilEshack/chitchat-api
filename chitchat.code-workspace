@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"path": "chitchat-producer"
+		},
+		{
+			"path": "chitchat-consumer"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true,
+			"**/.classpath": true,
+			"**/.project": true,
+			"**/.settings": true,
+			"**/.factorypath": true,
+			"chitchat-consumer": true,
+			"chitchat-producer": true
+		},
+		"explorerExclude.backup": null
+	}
+}
