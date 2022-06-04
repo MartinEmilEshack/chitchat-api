@@ -9,22 +9,21 @@ class Api::AppsController < ApplicationController
   # POST api/apps
   def create
     @app = App.new(app_params)
+    return render json: @app.errors, status: :unprocessable_entity unless @app.save
 
-    if @app.save
-      @app.token = token(app_id: @app.id, redis_host: "") # redis host should be added to token too
-      render json: @app, status: :created, location: api_app_url(@app)
-    else
-      render json: @app.errors, status: :unprocessable_entity
+    REDIS.with do |cache|
+      cache.set "app/#{@app.id}/chat_count", 0
     end
+    
+    @app.token = token(app_id: @app.id, redis_host: "") # redis host should be added to token too
+    render json: @app, status: :created, location: api_app_url(@app)
   end
 
   # PATCH/PUT api/apps/:token
   def update
-    if @app.update(app_params)
-      render json: @app.to_json(only: [:name, :chat_count])
-    else
-      render json: @app.errors, status: :unprocessable_entity
-    end
+    return render json: @app.errors, status: :unprocessable_entity unless @app.update(app_params)
+
+    render json: @app.to_json(only: [:name, :chat_count])
   end
 
   # DELETE api/apps/:token
