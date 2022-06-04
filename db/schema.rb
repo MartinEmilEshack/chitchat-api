@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_03_202430) do
+ActiveRecord::Schema.define(version: 2022_06_04_012415) do
 
   create_table "apps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -20,4 +20,14 @@ ActiveRecord::Schema.define(version: 2022_06_03_202430) do
     t.integer "redis_host"
   end
 
+  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "num", null: false
+    t.integer "message_count", default: 0
+    t.bigint "app_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["app_id"], name: "index_chats_on_app_id"
+  end
+
+  add_foreign_key "chats", "apps"
 end

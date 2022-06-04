@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
   constraints(token: /[^\/]+/) do
     namespace :api do
-      resources :apps, param: :token, :except => :index
+      get :apps, to: 'apps#show'
+      post :apps, to: 'apps#create'
+      put :apps, to: 'apps#update'
+      patch :apps, to: 'apps#update'
+      delete :apps, to: 'apps#destroy'
+      
+      resources :apps, only: [] do
+        collection do
+          resources :chats, param: :num, :except => :update
+        end
+      end
     end
   end
   

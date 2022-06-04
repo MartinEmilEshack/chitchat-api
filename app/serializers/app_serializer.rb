@@ -1,3 +1,4 @@
 class AppSerializer < ActiveModel::Serializer
-  attributes :name, :token, :chat_count
+	attributes :name, :chat_count
+	attribute :token, if: -> { object.token.present? }
 end
