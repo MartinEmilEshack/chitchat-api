@@ -1,4 +1,7 @@
 class Api::ChatsController < ApplicationController
+  include RabbitMQ
+  include RedisCache
+
   before_action :check_valid_app_token
   before_action :set_chat, only: [:show, :update, :destroy]
 
@@ -17,14 +20,20 @@ class Api::ChatsController < ApplicationController
   def create
     app_id = app_payload(parameters: chat_params)[:app_id]
 
-    chat_num = REDIS.with(timeout: 2.0) do |cache|
-      cache.incr "app/#{app_id}/chat_count"
+    chat_num = cache.with(timeout: 2.0) do |redis|
+      count = redis.incr "app/#{app_id}/chat_count"
+      redis.set "app/#{app_id}/chat/#{count}/message_count", 0
+      count
     end
-    @chat = Chat.new(num: chat_num, app_id: app_id)
+    
+    chat = Chat.new(num: chat_num, app_id: app_id, message_count: 0)
 
-    # save should be requested from consumer of rabbittmq
-    return render json: @chat.errors, status: :unprocessable_entity unless @chat.save
-    render json: @chat, status: :created, location: api_chat_url(@chat)
+    queue.with do |channel|
+      exchange = channel.direct('chats', no_declare: true)
+      exchange.publish(chat.to_json, type: 'create-chat')
+    end
+
+    render json: chat, status: :created
   end
 
   # DELETE /chats/1

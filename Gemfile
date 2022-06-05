@@ -17,6 +17,10 @@ gem 'redis-rails'
 gem 'redis-namespace'
 
 gem 'connection_pool', '~> 2.2', '>= 2.2.1'
+
+gem 'sneakers'
+gem 'bunny'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 

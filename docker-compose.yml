@@ -32,6 +32,11 @@ services:
     ports:
       - "${QUEUE_PORT}:5672"
       - "${QUEUE_MANAGEMENT_PORT}:15672"
+    volumes:
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./rabbitmq/rabbitmq.definitions.json:/etc/rabbitmq/definitions.json
+      - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+      - ./rabbitmq/logs:/var/log/rabbitmq/log
 
   chitchat-api:
     container_name: chitchat-api
