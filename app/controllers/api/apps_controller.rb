@@ -3,7 +3,7 @@ class Api::AppsController < ApplicationController
 
   before_action :set_app, only: [:show, :update, :destroy]
 
-  # GET api/apps/:token
+  # GET api/apps
   def show
     render json: @app
   end
@@ -21,13 +21,13 @@ class Api::AppsController < ApplicationController
     render json: @app, status: :created
   end
 
-  # PATCH/PUT api/apps/:token
+  # PATCH/PUT api/apps
   def update
     return render json: @app if @app.update(app_params(reqToken: false))
     render json: @app.errors, status: :unprocessable_entity 
   end
 
-  # DELETE api/apps/:token
+  # DELETE api/apps
   def destroy
     @app.destroy
   end
@@ -44,7 +44,7 @@ class Api::AppsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def app_params(reqToken: true)
       app_obj = params.require(:app)
-      return app_obj.permit(:name) unless reqToken
-      app_obj.permit(:name, :token) 
+      return app_obj.permit(:name, :token) if reqToken
+      app_obj.permit(:name) 
     end
 end
