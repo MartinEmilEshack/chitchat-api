@@ -1,7 +1,6 @@
 # ChitChat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+API for ChitChat, a chating service made as a test project for Instabug.
 
 ### Details:
 
