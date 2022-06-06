@@ -22,6 +22,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/.env
-/.env.*
-!/.env.example
+/elasticsearch/*
+!/elasticsearch/.keep
+
+*.env
+.env.*
+!.env.example
