@@ -1,24 +1,40 @@
-# README
+# ChitChat
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+### Details:
 
-* Ruby version
+* Ruby version ~> 5.0.0
 
-* System dependencies
+* System dependencies  
+  `MySQL - Redis - RabbitMQ - Elasticsearch` checkout `docker-compose.yml` for more info.
 
-* Configuration
+* Configuration  
+  checkout `.env.example` I also added a `.env` file for a demo
 
-* Database creation
+## Instructions  
 
-* Database initialization
+run  
+``` 
+$ docker compose up 
+```  
+..wait for eternity  
+then in a new terminal run these commands
+```
+$ docker compose exec chitchat-api rails db:migrate
+$ docker compose exec chitchat-api rake consumers
+```
 
-* How to run the test suite
+The `rails db:migrate` should build the database tables  
+The `rake consumers` should run the consumer workers, whom would persist the new chats and messages into the database and elasticsearch  
 
-* Services (job queues, cache servers, search engines, etc.)
+## Known Problem  
 
-* Deployment instructions
+I've tried to connect the Elasticsearch client `elasticsearch-rails` to the `chitchat-search` container but It won't make the connection to the right host. It gives this error.  
+```
+Faraday::ConnectionFailed (Failed to open TCP connection to localhost:9200 (Cannot assign requested address - connect(2) for "localhost" port 9200)):
+```
+I've tried plenty of configurations and searched a lot for answers. I've even tried to connect while disabling the user and password. but I couldn't make it. However the insertion of messages and searching logic is implemented. It just won't work. I would really appreciate any comments regarding this issue.  
 
-* ...
+#### Have fun
