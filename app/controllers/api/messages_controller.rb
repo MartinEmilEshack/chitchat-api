@@ -11,6 +11,7 @@ class Api::MessagesController < ApplicationController
   def index
     search = params[:search]
     if search
+      # localhost TCP error
       messages = MessageRepository.init.search query: { 
         match: { text: search, chat_id: @chat.id, app_id: @chat.app_id }
       }

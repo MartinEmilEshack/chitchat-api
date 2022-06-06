@@ -1,21 +1,16 @@
 # config/initializer/elasticsearch.rb
 require 'elasticsearch'
 
-# config = {
-#   transport_options: { request: { timeout: 5 } }
-# }
-# if File.exist?('config/elasticsearch.yml')
-#   template = ERB.new(File.new('config/elasticsearch.yml').read)
-#   processed = YAML.safe_load(template.result(binding))
-#   config.merge!(processed[Rails.env].symbolize_keys)
-# end
-
 module ElasticsearchClinet
 	class Repository
 		include Elasticsearch::Persistence::Repository
 		include Elasticsearch::Persistence::Repository::DSL
 
-		client Elasticsearch::Client.new
+		client Elasticsearch::Client.new (
+			host: ENV['SEARCH_HOST'],
+			port: ENV['SEARCH_PORT'],
+			password: ENV['SEARCH_PASSWORD'] 
+		)
 			# url: 'http://:9200'
 			# host_url: 'http://elasticsearch:9200',
 			# hostname: 'http://elasticsearch:9200',
@@ -30,6 +25,5 @@ module ElasticsearchClinet
     	#  	  scheme: 'http'
   	  #  	}
 			# ]
-		# })
 	end
 end
