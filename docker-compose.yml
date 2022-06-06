@@ -11,6 +11,10 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "${DB_PORT}:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
 
   redis:
     container_name: chitchat-cache
@@ -38,10 +42,38 @@ services:
       - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
       - ./rabbitmq/logs:/var/log/rabbitmq/log
 
+  elasticsearch:
+    container_name: chitchat-search
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.4
+    environment:
+      - cluster.name=chitchat-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.monitoring.enabled=false
+      - xpack.graph.enabled=false
+      - xpack.watcher.enabled=false
+      - ELASTIC_PASSWORD=${SEARCH_PASSWORD}
+      - http.port=9200
+      - transport.tcp.port=9300
+      - network.host=0.0.0.0
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
+    ports:
+      - "${SEARCH_PORT}:9200"
+
   chitchat-api:
     container_name: chitchat-api
     build: .
     image: chitchat-api:1.0
+    depends_on:
+      mysql:
+        condition: service_healthy
     volumes:
       - .:/chitchat-api
     ports:
