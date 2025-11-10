@@ -1,4 +1,3 @@
-version: '3'
 services:
   mysql:
     container_name: chitchat-storage
@@ -11,10 +10,38 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "${DB_PORT}:3306"
+    profiles:
+      - dev
+      - full
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 20s
+      timeout: 10s
       retries: 10
+
+  # database:
+  #   image: mysql:8
+  #   container_name: chitchat-storage
+  #   ports:
+  #     - "${DB_PORT}:3306"
+  #   restart: always
+  #   # command: ['--mysql-native-password', '--socket=/tmp/mysql.sock']
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     MYSQL_USER: ${DB_USERNAME}
+  #     MYSQL_PASSWORD: ${DB_PASSWORD}
+  #     MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+  #   volumes:
+  #     - ./storage/dev-dump:/docker-entrypoint-initdb.d
+  #     - mysql_data_volume:/var/lib/mysql:z
+  #   profiles:
+  #     - full
+  #   healthcheck:
+  #     test: ['CMD', 'mysql', '-h', '127.0.0.1', '-uroot', '--password=dbadmin', '-e', '"SELECT VERSION();SELECT NOW();"']
+  #     start_period: 30s
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 10
 
   redis:
     container_name: chitchat-cache
@@ -24,6 +51,9 @@ services:
     hostname: redis
     ports:
       - "${CACHE_PORT}:6379"
+    profiles:
+      - dev
+      - full
 
   rabbitmq:
     container_name: chitchat-queue
@@ -41,6 +71,9 @@ services:
       - ./rabbitmq/rabbitmq.definitions.json:/etc/rabbitmq/definitions.json
       - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
       - ./rabbitmq/logs:/var/log/rabbitmq/log
+    profiles:
+      - dev
+      - full
 
   elasticsearch:
     container_name: chitchat-search
@@ -66,6 +99,8 @@ services:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
     ports:
       - "${SEARCH_PORT}:9200"
+    profiles:
+      - full
 
   chitchat-api:
     container_name: chitchat-api
@@ -80,3 +115,12 @@ services:
       - "${API_PORT}:3000"
     env_file:
       - .env
+    environment:
+      - DB_HOST=chitchat-storage
+      - DB_PORT=3306
+    profiles:
+      - full
+
+volumes:
+  mysql_data_volume:
+    

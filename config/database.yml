@@ -10,12 +10,14 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: trilogy
+  adapter: mysql2
   encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: <%= ENV['DB_HOST'] %>
+  port: <%= ENV['DB_PORT'] || 3306 %>
   database: <%= ENV['DB_NAME'] %>
-  username: <%= ENV['DB_USER'] %>
+  username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
 
 development:
