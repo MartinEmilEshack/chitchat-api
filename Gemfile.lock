@@ -142,6 +142,8 @@ GEM
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
     json (2.16.0)
+    jsonapi-serializer (2.2.0)
+      activesupport (>= 4.2)
     jwt (3.1.2)
       base64
     kicks (3.2.0)
@@ -346,9 +348,12 @@ DEPENDENCIES
   connection_pool (~> 2.4, >= 2.4.1)
   debug
   dotenv-rails (~> 3.1, >= 3.1.8)
+  elasticsearch (~> 8.8)
+  elasticsearch-model (~> 8.0, >= 8.0.1)
   elasticsearch-persistence (~> 8.0, >= 8.0.1)
   elasticsearch-rails (~> 8.0, >= 8.0.1)
   jbuilder
+  jsonapi-serializer
   jwt
   kicks
   kredis
