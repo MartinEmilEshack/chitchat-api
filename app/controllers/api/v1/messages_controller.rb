@@ -11,19 +11,12 @@ class Api::V1::MessagesController < ApplicationController
   def index
     search = params[:search]
     if search
-      # localhost TCP error
-      messages = MessageRepository.init.search query: {
-        match: { text: search, chat_id: @chat.id, app_id: @chat.app_id }
-      }
-      messages = messages.each_with_hit do |message, hit|
-        { num: message.num, text: message.text, score: hit._score }
-      end
+      messages = Message.filtered_search text: search, chat: @chat
     else
-      # should be paginated
       messages = Message.where chat_id: @chat.id
     end
 
-    render json: messages
+    render json: MessageSerializer.json(messages)
   end
 
   # POST api/v1/apps/:app_token/chats/:chat_num/messages
@@ -54,7 +47,7 @@ class Api::V1::MessagesController < ApplicationController
 
   # PATCH/PUT api/v1/apps/:app_token/chats/:chat_num/messages/1
   def update
-    return render json: @message if @message.update(message_params)
+    return render json: MessageSerializer.json(@message) if @message.update(message_params)
     render json: @message.errors, status: :unprocessable_entity
   end
 
@@ -76,7 +69,6 @@ class Api::V1::MessagesController < ApplicationController
 
     def set_message
       message_num = params.require(:num)
-      puts message_num
       @message = Message.find_by! num: message_num, chat_id: @chat.id
     end
 
