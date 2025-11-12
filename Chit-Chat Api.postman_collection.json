@@ -1,0 +1,945 @@
+{
+	"info": {
+		"_postman_id": "9b12e540-5d58-4469-8b36-b2bfdf9169d5",
+		"name": "Chit-Chat Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21299479"
+	},
+	"item": [
+		{
+			"name": "App Requests",
+			"item": [
+				{
+					"name": "Create App",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app\": {\n        \"name\": \"Messenger\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Messenger",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"app\": {\n        \"name\": \"Messenger\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/apps",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"apps"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:3000/api/apps/8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a483f145d574f796a92fddac5f7c5949\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "5e2c4e01-f31d-44d2-ada0-9a9b7d6dc2f6"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.010392"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Messenger\",\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJhcHBfaWQiOjgsInJlZGlzX2hvc3QiOiIifQ.XRHCs5KpOY6nKy0O_U9H5acpg9Kv9DQt9cYnZ9HiZwk\",\n    \"chat_count\": 0\n}"
+						},
+						{
+							"name": "Viper",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"app\": {\n        \"name\": \"Viper\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/apps",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"apps"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:3000/api/apps/14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a9eab495adcb8c659a81679bd8d4fdaa\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "2407826f-b12d-463a-bc08-28b1e8230417"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.008584"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Viper\",\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJhcHBfaWQiOjE0LCJyZWRpc19ob3N0IjoiIn0.ndSfgZFAPdnvJKaKL985jnLmVWoWqaDb2t61Za0R6mM\",\n    \"chat_count\": 0\n}"
+						},
+						{
+							"name": "Whatsapp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"app\": {\n        \"name\": \"Whatsapp\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/apps",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"apps"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:3000/api/apps/15"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a9b7a9500d3b494a70c2af05cf2caa47\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "2f0c49a2-4c3a-4f20-a44e-cb47758ab30d"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.016773"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Whatsapp\",\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJhcHBfaWQiOjE1LCJyZWRpc19ob3N0IjoiIn0.m1PoLHPJnRK-4G8Z2iVBgkD41R12GzItLRz6GUXA1SU\",\n    \"chat_count\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Read App",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Messenger",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/apps/{{Messenger}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"apps",
+										"{{Messenger}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a8f3c0b187017f1127d9647e72ce3246\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "b472c969-778e-4ea0-8a8d-9265380e6f02"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.003637"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Messenger\",\n    \"chat_count\": 0\n}"
+						},
+						{
+							"name": "Whatsapp",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/apps/{{Whatsapp}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"apps",
+										"{{Whatsapp}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b673fe9d5222aeb5517bba29c9d259c9\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "77ffb223-f41c-4b8b-9c92-fb244eb24da3"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.003809"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Whatsapp\",\n    \"chat_count\": 0\n}"
+						},
+						{
+							"name": "Viper",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/apps/{{Viper}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"apps",
+										"{{Viper}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20d63abe766331501a4797f8f59ca600\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "8c402b17-9537-4d99-b56b-0a8b3c3cbfc4"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.004265"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Viper\",\n    \"chat_count\": 0\n}"
+						},
+						{
+							"name": "WrongToken",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/apps/{{WrongToken}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"apps",
+										"{{WrongToken}}"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "b9de7a87-5d94-4f30-9903-cf44326f32bb"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.002588"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Incorrect App-token\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update App",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"app\": {\n        \"name\": \"Whatsapp\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Whatsapp to WhatsApp",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"app\": {\n        \"name\": \"WhatsApp\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/apps/{{Whatsapp}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"apps",
+										"{{Whatsapp}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c85c6870cf608d412c1ac25603d605d7\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "72fd39ea-889c-4852-a271-b40e16a70a8f"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.010312"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"WhatsApp\",\n    \"chat_count\": 0\n}"
+						},
+						{
+							"name": "WhatsApp to Whatsapp",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"app\": {\n        \"name\": \"Whatsapp\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/apps/{{Whatsapp}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"apps",
+										"{{Whatsapp}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b673fe9d5222aeb5517bba29c9d259c9\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "09947296-6f80-42cb-acaa-253d08a07011"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.008411"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Whatsapp\",\n    \"chat_count\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete App",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/TlhjSSt3PT0tLW1vMi9ybnJZVUpUNWp2ckwtLVFPc2YzVlJBZVR3bEs0RVE2YVJ1Q2c9PQ",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"TlhjSSt3PT0tLW1vMi9ybnJZVUpUNWp2ckwtLVFPc2YzVlJBZVR3bEs0RVE2YVJ1Q2c9PQ"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Apps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat Requests",
+			"item": [
+				{
+					"name": "Read Chats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}/chats",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}/chats",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Chat",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}/chats/8",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}",
+								"chats",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Chat",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}/chart/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}",
+								"chart",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Message Requests",
+			"item": [
+				{
+					"name": "Create Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": {\n        \"text\" : \"sdhbqbqw qhbqf qwhbqwf qwihqbf qfiqbhfi qwfibqwfif qwfiqbwfi\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}/chats/3/messages",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}",
+								"chats",
+								"3",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}/chats/3/messages?search=qwfibqwfif",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}",
+								"chats",
+								"3",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "qwfibqwfif"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Messages",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}/chats/1/messages/5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}",
+								"chats",
+								"1",
+								"messages",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Messages",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": {\n        \"text\" : \"sdhbqbqw qwihqbf qfiqbhfi qwfibqwfif qwfiqbwfi\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/apps/{{APP_TOKEN}}/chats/1/messages/5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{APP_TOKEN}}",
+								"chats",
+								"1",
+								"messages",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Whatsapp",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJhcHBfaWQiOjE1LCJyZWRpc19ob3N0IjoiIn0.m1PoLHPJnRK-4G8Z2iVBgkD41R12GzItLRz6GUXA1SU"
+		},
+		{
+			"key": "Viper",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJhcHBfaWQiOjE0LCJyZWRpc19ob3N0IjoiIn0.ndSfgZFAPdnvJKaKL985jnLmVWoWqaDb2t61Za0R6mM",
+			"type": "string"
+		},
+		{
+			"key": "Messenger",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJhcHBfaWQiOjEsInJlZGlzX2hvc3QiOiIifQ.xocVeRYCy_3Gyb8O12MOMCULPZIE6p_OTxl5HKK4qAI",
+			"type": "string"
+		},
+		{
+			"key": "WrongToken",
+			"value": "qhkqbfhkbw",
+			"type": "string"
+		}
+	]
+}

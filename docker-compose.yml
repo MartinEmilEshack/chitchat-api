@@ -101,16 +101,14 @@ services:
       - full
 
   chitchat-workers:
-    container_name: chitchat-api
+    container_name: chitchat-workers
     build: .
-    command: ["rake", "consumers"]
+    command: bundle exec rake consumers
     image: chitchat-api:1.0
     depends_on:
       - chitchat-api
     volumes:
       - .:/chitchat-api
-    ports:
-      - "${API_PORT}:3000"
     env_file:
       - .env
     environment:
@@ -118,6 +116,7 @@ services:
       - DB_PORT=3306
       - CACHE_HOST=chitchat-cache
       - QUEUE_HOST=chitchat-queue
+      - SEARCH_HOST=chitchat-search
     profiles:
       - full
 
